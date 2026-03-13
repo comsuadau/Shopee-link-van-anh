@@ -1,113 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Tạo Link Shopee</title>
+<title>Đổi Link Shopee Áp Mã 25%</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-  .header{
+
+body{
+font-family:'Quicksand',sans-serif;
+background:#f5f5f5;
 text-align:center;
-margin-bottom:20px;
+padding:40px
+}
+
+.header{
+margin-bottom:20px
 }
 
 .header img{
-width:50px;
-margin-bottom:5px;
+width:60px
 }
 
 .header h1{
 color:#ee4d2d;
-font-size:22px;
-font-weight:bold;
-line-height:1.2;
-}
-
-body{<div class="header">
-
-<img src="https://cdn-icons-png.flaticon.com/512/5977/5977575.png">
-
-<h1>ĐỔI LINK SHOPEE<br>ÁP MÃ 25%</h1>
-
-</div>
-font-family:Arial;
-background:#e8b19f;
-padding-top:60px
-}
-
-.container{
-width:420px;
-margin:auto
+font-size:24px;
+margin-top:5px
 }
 
 .box{
 background:white;
+width:420px;
+margin:auto;
 padding:20px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1)
+border-radius:14px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08)
 }
 
-.title{
-font-weight:bold;
-margin-bottom:10px
+.input-area{
+position:relative
 }
 
-input{
+textarea{
 width:100%;
-padding:12px;
+height:80px;
 border:1px solid #ddd;
-border-radius:6px;
+border-radius:10px;
+padding:10px;
 font-size:14px
 }
 
-.create{
+.btn-top{
+position:absolute;
+right:5px;
+top:5px;
+display:flex;
+gap:5px
+}
+
+.btn-top button{
+background:#e5e7eb;
+border:none;
+padding:5px 8px;
+border-radius:6px;
+cursor:pointer;
+font-size:12px
+}
+
+.convert{
 margin-top:12px;
 width:100%;
 background:#ee4d2d;
 color:white;
 padding:12px;
 border:none;
-border-radius:8px;
+border-radius:10px;
 font-size:15px;
 cursor:pointer
 }
 
-.guide{
-background:#f5f5f5;
-padding:15px;
-border-radius:8px;
-margin-top:15px;
-font-size:14px
-}
-
-.facebook{
-margin-top:15px;
+.product{
+display:none;
+margin-top:20px;
 background:white;
 padding:15px;
-border-radius:10px;
+border-radius:12px;
 box-shadow:0 3px 10px rgba(0,0,0,0.08)
 }
 
-.voucher{
+.product-top{
 display:flex;
 gap:10px;
-margin-top:10px
+text-align:left
 }
 
-.fbicon{
-width:60px;
-height:60px;
-background:#1877f2;
-border-radius:6px;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-font-weight:bold;
-font-size:20px
+.product img{
+width:70px;
+height:70px;
+border-radius:8px
 }
 
-.vtext{
+.name{
 font-size:14px
+}
+
+.ready{
+color:#16a34a;
+font-size:13px
 }
 
 .copy{
@@ -115,10 +115,35 @@ margin-top:12px;
 width:100%;
 background:#ee4d2d;
 color:white;
-padding:10px;
+padding:12px;
 border:none;
+border-radius:10px;
+font-size:15px;
+cursor:pointer
+}
+
+.note{
+margin-top:10px;
+font-size:13px
+}
+
+.fbbtn{
+margin-top:10px;
+background:#1877f2;
+color:white;
+border:none;
+padding:10px;
 border-radius:8px;
 cursor:pointer
+}
+
+.voucher{
+margin-top:15px
+}
+
+.voucher img{
+width:100%;
+border-radius:10px
 }
 
 </style>
@@ -127,61 +152,70 @@ cursor:pointer
 
 <body>
 
-<div class="container">
+<div class="header">
+
+<img src="https://cdn-icons-png.flaticon.com/512/5977/5977575.png">
+
+<h1>ĐỔI LINK SHOPEE<br>ÁP MÃ 25%</h1>
+
+</div>
 
 <div class="box">
 
-<div class="title">🔒 Link sản phẩm Shopee</div>
+<div class="input-area">
 
-<input id="link" placeholder="Dán link Shopee vào đây...">
+<textarea id="link" placeholder="Dán link Shopee vào đây..."></textarea>
 
-<button class="create" onclick="convert()">✏️ Tạo Link Ngay</button>
+<div class="btn-top">
 
-</div>
+<button onclick="pasteLink()">📋 Dán link</button>
 
-<div class="guide">
-
-<b>ℹ Hướng dẫn</b>
-
-<br><br>
-
-1. Sau khi tạo link, nhấn <b>Copy Link</b>  
-<br>
-2. Dán link dưới bình luận bài đăng này  
-<br>
-3. Click vào link để mở Shopee sẽ nhận được mã
-
-<br><br>
-
-<button onclick="gotoFB()">Đến bài đăng Facebook</button>
+<button onclick="clearLink()">✖ Xóa</button>
 
 </div>
 
-<div class="facebook" id="resultBox" style="display:none">
+</div>
 
-<b>Mã giảm giá/hoàn Xu</b>
+<button class="convert" onclick="convertLink()">
+CHUYỂN ĐỔI NGAY
+</button>
+
+<div class="product" id="productBox">
+
+<div class="product-top">
+
+<img id="pimg">
+
+<div>
+
+<div class="name" id="pname"></div>
+
+<div class="ready">✔ Sẵn sàng áp mã giảm giá</div>
+
+</div>
+
+</div>
+
+<button class="copy" onclick="copyLink()">
+🔗 Sao chép link
+</button>
+
+<div class="note">
+Nhấn "🔗 Sao chép link" và dán vào dưới bình luận bài post này để áp mã 25%
+</div>
+
+<button class="fbbtn"
+onclick="window.open('https://www.facebook.com/loi.hathi.96/posts/pfbid02pkKLn4aPk3GS82fiJJ6uHN4ovBbUMot4cyvujqKggBshkDVy75nwTMfDjKjn1Fe5l')">
+
+Đến bài đăng Facebook
+
+</button>
 
 <div class="voucher">
 
-<div class="fbicon">f</div>
-
-<div class="vtext">
-
-<b>giảm 20% Giảm tối đa 500k</b>
-
-<br>
-
-Đơn tối thiểu 50k
-
-<br>
-
-<span style="color:#ee4d2d">Độc quyền Facebook</span>
+<img src="https://i.imgur.com/2m6X7Xx.png">
 
 </div>
-
-</div>
-
-<button class="copy" onclick="copylink()">SAO CHÉP LINK</button>
 
 </div>
 
@@ -189,34 +223,56 @@ cursor:pointer
 
 <script>
 
-let output=""
+let affLink=""
 
-function convert(){
+async function pasteLink(){
+const text = await navigator.clipboard.readText()
+document.getElementById("link").value=text
+}
 
-let link=document.getElementById("link").value
+function clearLink(){
+document.getElementById("link").value=""
+}
 
-if(link==""){
+async function convertLink(){
+
+let url=document.getElementById("link").value
+
+if(url==""){
 alert("Hãy dán link Shopee")
 return
 }
 
-output="https://s.shopee.vn/"+btoa(link)
+let api="https://api.allorigins.win/raw?url="+encodeURIComponent(url)
 
-document.getElementById("resultBox").style.display="block"
+try{
+
+let html=await fetch(api).then(r=>r.text())
+
+let img=html.match(/property="og:image" content="(.*?)"/)
+
+let name=html.match(/property="og:title" content="(.*?)"/)
+
+document.getElementById("pimg").src=img[1]
+document.getElementById("pname").innerText=name[1]
+
+}catch{
+
+document.getElementById("pname").innerText="Sản phẩm Shopee"
 
 }
 
-function copylink(){
+affLink="https://s.shopee.vn/"+btoa(url)+"?siteid=17378000350"
 
-navigator.clipboard.writeText(output)
+document.getElementById("productBox").style.display="block"
+
+}
+
+function copyLink(){
+
+navigator.clipboard.writeText(affLink)
 
 alert("Đã sao chép link")
-
-}
-
-function gotoFB(){
-
-window.open("https://facebook.com")
 
 }
 
