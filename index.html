@@ -2,63 +2,149 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Đổi Link Shopee</title>
+<title>Đổi Link Shopee Affiliate</title>
+
 <style>
+
 body{
 font-family:Arial;
-background:#f5f5f5;
+background:#f6f6f6;
 text-align:center;
 padding-top:80px
 }
+
 .box{
 background:white;
-width:400px;
+width:420px;
 margin:auto;
 padding:30px;
-border-radius:12px;
-box-shadow:0 0 10px rgba(0,0,0,0.1)
+border-radius:14px;
+box-shadow:0 0 15px rgba(0,0,0,0.08)
 }
-input{
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:#ee4d2d;
+margin-bottom:10px
+}
+
+textarea{
 width:100%;
-padding:12px;
-margin-top:10px
+height:80px;
+padding:10px;
+margin-top:10px;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:14px
 }
+
 button{
-margin-top:20px;
+margin-top:12px;
 padding:12px 20px;
-background:#ff5722;
 border:none;
-color:white;
-font-size:16px;
-border-radius:6px;
+border-radius:8px;
+font-size:15px;
 cursor:pointer
 }
+
+.convert{
+background:#ee4d2d;
+color:white;
+width:100%
+}
+
+.copy{
+background:#00bfa5;
+color:white;
+width:48%
+}
+
+.open{
+background:#3b82f6;
+color:white;
+width:48%
+}
+
+.result{
+margin-top:15px;
+font-size:14px;
+word-break:break-all
+}
+
+.btnrow{
+display:flex;
+justify-content:space-between;
+margin-top:10px
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="box">
 
-<h2>ĐỔI LINK SHOPEE AFFILIATE</h2>
+<div class="logo">
+ĐỔI LINK SHOPEE AFFILIATE
+</div>
 
-<input id="link" placeholder="Dán link Shopee vào đây">
+<textarea id="link" placeholder="Dán link sản phẩm Shopee vào đây"></textarea>
 
-<button onclick="convert()">Chuyển đổi</button>
+<button class="convert" onclick="convert()">
+CHUYỂN ĐỔI NGAY
+</button>
 
-<p id="result"></p>
+<div class="result" id="result"></div>
+
+<div class="btnrow">
+<button class="copy" onclick="copylink()">COPY LINK</button>
+<button class="open" onclick="openlink()">MỞ LINK</button>
+</div>
 
 </div>
 
 <script>
 
+let output=""
+
 function convert(){
 
 let link=document.getElementById("link").value
 
-let newlink="https://s.shopee.vn/"+btoa(link)
+if(link==""){
+alert("Hãy dán link Shopee")
+return
+}
 
-document.getElementById("result").innerHTML=newlink
+output="https://s.shopee.vn/"+btoa(link)
+
+document.getElementById("result").innerHTML=output
+
+}
+
+function copylink(){
+
+if(output==""){
+alert("Chưa có link")
+return
+}
+
+navigator.clipboard.writeText(output)
+
+alert("Đã copy link")
+
+}
+
+function openlink(){
+
+if(output==""){
+alert("Chưa có link")
+return
+}
+
+window.open(output)
 
 }
 
