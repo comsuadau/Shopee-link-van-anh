@@ -8,74 +8,99 @@
 
 body{
 font-family:Arial;
-background:#f6f6f6;
-text-align:center;
-padding-top:80px
+background:#f5f5f5;
+padding-top:80px;
+text-align:center
 }
 
 .box{
 background:white;
 width:420px;
 margin:auto;
-padding:30px;
+padding:25px;
 border-radius:14px;
-box-shadow:0 0 15px rgba(0,0,0,0.08)
+box-shadow:0 5px 15px rgba(0,0,0,0.08)
 }
 
-.logo{
-font-size:22px;
-font-weight:bold;
+.title{
 color:#ee4d2d;
-margin-bottom:10px
+font-size:20px;
+font-weight:bold;
+margin-bottom:15px
 }
 
 textarea{
 width:100%;
 height:80px;
-padding:10px;
-margin-top:10px;
 border:1px solid #ddd;
 border-radius:8px;
+padding:10px;
 font-size:14px
 }
 
-button{
-margin-top:12px;
-padding:12px 20px;
+.convert{
+margin-top:15px;
+width:100%;
+background:#ee4d2d;
+color:white;
+padding:12px;
 border:none;
 border-radius:8px;
 font-size:15px;
 cursor:pointer
 }
 
-.convert{
-background:#ee4d2d;
-color:white;
-width:100%
+.product{
+display:none;
+margin-top:20px;
+background:white;
+border-radius:12px;
+padding:15px;
+box-shadow:0 3px 10px rgba(0,0,0,0.08)
+}
+
+.product-top{
+display:flex;
+gap:10px
+}
+
+.product img{
+width:70px;
+height:70px;
+border-radius:8px
+}
+
+.name{
+font-size:14px;
+text-align:left
+}
+
+.ready{
+color:#16a34a;
+font-size:13px;
+margin-top:4px
 }
 
 .copy{
-background:#00bfa5;
+margin-top:12px;
+width:100%;
+background:#ee4d2d;
 color:white;
-width:48%
+padding:12px;
+border:none;
+border-radius:8px;
+cursor:pointer
 }
 
 .open{
+margin-top:10px;
+width:100%;
 background:#3b82f6;
 color:white;
-width:48%
-}
-
-.result{
-margin-top:15px;
-font-size:14px;
-word-break:break-all
-}
-
-.btnrow{
-display:flex;
-justify-content:space-between;
-margin-top:10px
+padding:10px;
+border:none;
+border-radius:8px;
+cursor:pointer
 }
 
 </style>
@@ -86,7 +111,7 @@ margin-top:10px
 
 <div class="box">
 
-<div class="logo">
+<div class="title">
 ĐỔI LINK SHOPEE AFFILIATE
 </div>
 
@@ -96,11 +121,34 @@ margin-top:10px
 CHUYỂN ĐỔI NGAY
 </button>
 
-<div class="result" id="result"></div>
+<div class="product" id="productBox">
 
-<div class="btnrow">
-<button class="copy" onclick="copylink()">COPY LINK</button>
-<button class="open" onclick="openlink()">MỞ LINK</button>
+<div class="product-top">
+
+<img src="https://down-vn.img.susercontent.com/file/sg-11134201-7qvg7-lk6w8w6qk2g8a4">
+
+<div class="name">
+
+<b id="productName">
+Sản phẩm Shopee
+</b>
+
+<div class="ready">
+✔ Sẵn sàng áp mã giảm giá
+</div>
+
+</div>
+
+</div>
+
+<button class="copy" onclick="copylink()">
+SAO CHÉP LINK
+</button>
+
+<button class="open" onclick="openlink()">
+MỞ LINK
+</button>
+
 </div>
 
 </div>
@@ -120,7 +168,7 @@ return
 
 output="https://s.shopee.vn/"+btoa(link)
 
-document.getElementById("result").innerHTML=output
+document.getElementById("productBox").style.display="block"
 
 }
 
@@ -133,7 +181,7 @@ return
 
 navigator.clipboard.writeText(output)
 
-alert("Đã copy link")
+alert("Đã sao chép link")
 
 }
 
